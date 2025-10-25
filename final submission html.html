@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Artien Voskanian</strong> — <em>arvoskanian@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Over the past 40 years, complaints against NYPD officers have skyrocketed in a way that cannot be explained simply by New York City's increase in population.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="Submission - Abuse of Authority.png" style="width: 670px; height: auto;" alt="" />
+          <figcaption>The number of complaints filed against NYPD Officers increased exponentially in the past several decades. New York City's stable rise in population unlikely to be the root cause.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>I found and incorporated New York City population data alongside the provided dataset to put the number of complaints into better context. If used honestly, this would have helped answer the question more accurately. (Score: 2)</li>
+          <li>However, I chose not to convert the data into a complaints-per-capita line, which is the most ethical decision in this situation. Instead, I used two separate lines because it grabs attention more easily and supports a more persuasive narrative: that NYC’s population growth alone cannot explain the huge spike in NYPD complaints. While population is a great metric for uncovering the truth, I didn’t use it in the most earnest way. A per-capita metric would have been the honest choice. (Score: 1)</li>
+          <li>I removed the 2019 and 2020 data because they were major outliers. Even though the huge drop in complaints during those years could be explained by COVID-19 (and could have simply been annotated), including them would have pulled attention away from the story I wanted to tell. (Score: 0.5)</li>
+          <li>The right-hand y-axis was not technically deceptive, but I did scale it so that the blue complaints line would cross the orange population line. This crossover makes the argument look more convincing at a glance, and even on closer inspection nothing looks obviously wrong. Still, I could have chosen a scale that avoided the crossover entirely. (Score: 1)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="Submission - Abuse of Authority Counter Argument.png" style="width: 670px; height: auto;" alt="" />
+          <figcaption>We see a correlation between the increase in New York City's population and the number of compliants filed against its police force. The heavy resemblance between the data implies a steady and expected rate of complaints over time.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>The right-side population axis is heavily skewed. It starts at 13 million instead of zero and tops out around 19 million. I did this on purpose so the population trend would visually mirror the complaints line as closely as possible. I tested tighter and wider ranges, and chose this version because it worked well without being overly obvious. (Score: -2)</li>
+          <li>To further match the slope of the population line to the complaints line, I constrained the right y-range to about 0.5% (+/-) of the min/max to make the orange population line look steadier and steeper. I realized that messing the right axis zoom by adding upper and lower paddings made much more of an impact that I initially expected. I took advantage of this discovery to further the narrative complaints against NYPD offices were not increasingly alarmingly and could simply be explained away by the increase in New York City’s population. (Score: -2)</li>
+          <li>I also changed the left-side scale, increasing the y-axis range from 0–2000 to 0–5000. This intentionally flattened the complaints curve, making it easier to align visually with the population line. The original raw slope would have been much harder to mirror without extremely obvious manipulation, so I softened the curve first, then matched the population line to it. (Score: -2)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>Initially, I was interested in digging into the statistics behind why these NYPD complaints were filed (abuse of authority, force, discourtesy, etc.). The results were fascinating, especially the massive increase in abuse-of-authority complaints, but I quickly realized that it would be extremely difficult to argue against that narrative without making manipulations that were way too obvious. Because of that, I shifted to a different angle: the idea that complaints against NYPD officers have skyrocketed in a way that cannot simply be explained by NYC’s growing population. The counterargument to this claim turned out to be much easier and only required subtle visual tricks. To tackle both sides, I brought in additional data outside of the assigned dataset, specifically, New York City population data.
+
+I debated for a long time whether I should use the population data to build “complaints per 100,000 residents” charts year-to-year. In the end, I chose a dual-axis line chart instead, with one line for complaints and one for population. This format gave me far more freedom: it allowed me to be persuasive when telling the true story, but also deceptive when building the counterargument. Even then, I was honestly surprised by how challenging it was to create a convincing counter-narrative without exposing the manipulation.
+
+Through this process, I learned that you can be ethical and still take steps in making visualizations more persuasive. If I were focused solely on accuracy and honesty, I would have used per-capita metrics and kept 2019/2020 in the visualization with proper annotations. Even without deception, I could still use persuasive design choices such as color palettes, chart type, emphasis, framing, etc., in order to communicate the truth clearly. Another example is in the first visualization where I allowed the blue complaints line to cross the orange population line. This decision choice is not inherently deceptive, but it does add persuasiveness to the truth. At the same time, I now fully understand how many tools exist to mislead a viewer if someone wants to. The average person is not actively looking for deception in charts, which makes it even easier to push a false narrative. I used several tactics in this assignment that I would personally condemn in real-world reporting, such as manipulating axis scales and zoom levels just to steer a viewer toward a conclusion that in anything but the truth.
+</p>
+      </section>
+    </main>
+  </body>
+</html>
